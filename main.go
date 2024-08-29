@@ -11,11 +11,11 @@ func formHandler(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "ParseForm() err: %v", err)
 		return
 	}
-	fmt.Fprintf(w, "Post Request Successful!")
+	fmt.Fprintf(w, "Post Request Successful! \n")
 	name := r.FormValue("name")
 	address := r.FormValue("address")
-	fmt.Fprintf(w, "Name = %s\n", name)
-	fmt.Fprintf(w, "Address = %s\n", address)
+	fmt.Fprintf(w, "The Full Name is %s\n", name)
+	fmt.Fprintf(w, "The Address is %s\n", address)
 }
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
@@ -24,7 +24,7 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if r.Method != "GET" {
-		http.Error(w, "method is not supported", http.StatusNotFound)
+		http.Error(w, "Method is not supported", http.StatusNotFound)
 		return
 	}
 	fmt.Fprintf(w, "Hello World from Go!")
